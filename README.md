@@ -10,7 +10,7 @@ b. Github Repo of 1st Week's Submission - https://github.com/abhisheksangwan/eva
 
 c. PDF of our team's design doc - https://drive.google.com/file/d/1AyW2Q5Vo-HELRH_1ozigPUbjXilcuakV/view
 
-d. EndTerm Game Link - https://github.com/abhisheksangwan/The-Lost-Princess/tree/main
+d. EndTerm Game Link - https://drive.google.com/drive/folders/1ozfH606S1mn8Kb-yboKAobySyduqMLOT
 
 e. Demo Video - https://drive.google.com/drive/folders/1u85TnEgfRcYV9fuzdtpYD8Q1PVFTagN4?usp=sharing
 
