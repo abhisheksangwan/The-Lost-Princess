@@ -7,6 +7,10 @@ public class ThirdPersonMovement : MonoBehaviour
     // Start is called before the first frame update
     public CharacterController controller;
 
+    public AudioSource foots;
+    bool m_HasAudioPlayed = false;
+    bool isWalking = false;
+
     public Animator animator;
     public Transform cam;
 
@@ -32,37 +36,31 @@ public class ThirdPersonMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             animator.SetBool("IsWalking", true);
+            Debug.Log("Walking");
+            if(!m_HasAudioPlayed)
+            {
+                foots.Play();
+                m_HasAudioPlayed = true;
+            }
+            isWalking = true;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            if ((controller.collisionFlags & CollisionFlags.Sides) != 0)
-            {
-                print("Touching sides!");
-            }
 
-            if (controller.collisionFlags == CollisionFlags.Sides)
-            {
-                print("Only touching sides, nothing else!");
-            }
-
-            if ((controller.collisionFlags & CollisionFlags.Above) != 0)
-            {
-                print("Touching Ceiling!");
-            }
-
-            if (controller.collisionFlags == CollisionFlags.Above)
-            {
-                print("Only touching Ceiling, nothing else!");
-            }
-
-            if ((controller.collisionFlags & CollisionFlags.Below) != 0)
-            {
-                print("Touching ground!");
-            }
-
-            if (controller.collisionFlags == CollisionFlags.Below)
-            {
-                print("Only touching ground, nothing else!");
-            }
+            
         }
+        else
+        {
+            isWalking = false;
+            // Debug.Log("Not walking");
+            if(m_HasAudioPlayed)
+            {
+                foots.Stop();
+                m_HasAudioPlayed=false;
+            }
+            animator.SetBool("IsWalking", false);
+        }
+      
+       
+
 
     }
 }

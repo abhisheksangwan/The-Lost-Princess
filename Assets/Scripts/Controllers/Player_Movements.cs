@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player_Movements : MonoBehaviour
 {
     public float turnSpeed = 100f;
+    
+    
+
     Animator m_Animator;
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
@@ -35,7 +38,7 @@ public class Player_Movements : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
-
+   
 
       
 
@@ -43,6 +46,7 @@ public class Player_Movements : MonoBehaviour
     }
     void OnAnimatorMove()
     {
+        
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
